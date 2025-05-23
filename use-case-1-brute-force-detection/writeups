@@ -1,1 +1,28 @@
+Failed Logon Event – Investigation Summary
+
+Overview
+A series of failed logon attempts was detected on May 23, 2025, from IP 192.168.189.129 targeting the Administrator account on the NANA workstation. The attempts used Logon Type 3 (network), indicating remote access via SMB/RDP or similar services.
+
+Timeline of Events
+
+| Timestamp           | Event ID | Description                                | Username      | Source IP        | Workstation | Notes                                    |
+|---------------------|----------|--------------------------------------------|---------------|------------------|-------------|------------------------------------------|
+| 10:24:09 PM         | 4625     | Failed logon attempt (network)             | Administrator | 192.168.189.129  | NANA        | Bad credentials                          |
+
+Key Findings
+- Repeated failed login attempts suggest potential brute-force or unauthorized access attempts.
+- The special privileges (Event ID 4672) granted just before the failed attempt could indicate that an account with high privileges was compromised or in use.
+- All events stemmed from the same internal IP address (192.168.189.129), which should be investigated for compromise.
+- The target was the default Administrator account – a common target in lateral movement or privilege escalation scenarios.
+
+Reflection
+This sequence highlights the importance of:
+- Disabling or renaming default accounts where possible.
+- Enforcing account lockout policies to prevent brute-force attempts.
+
+Recommended Actions
+- Isolate the source machine (192.168.189.129) for forensic investigation.
+- Review account usage logs for Administrator.
+- Audit privilege assignments and logon types.
+- Implement stricter access controls and alerting mechanisms for high-privilege accounts.
 
