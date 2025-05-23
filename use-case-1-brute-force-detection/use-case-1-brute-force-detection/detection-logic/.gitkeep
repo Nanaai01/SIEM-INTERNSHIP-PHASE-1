@@ -1,2 +1,0 @@
-Splunk query used for detection or correlation
-index="wineventlog" source="WinEventLog:Security"
