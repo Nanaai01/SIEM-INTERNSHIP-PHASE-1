@@ -1,0 +1,2 @@
+Splunk query used for detection
+  index="wineventlog" source="WinEventLog:Security"
