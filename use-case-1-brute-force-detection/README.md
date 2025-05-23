@@ -21,3 +21,9 @@ This use case demonstrates how to detect brute force login attempts using a SIEM
 3. Review example alerts in `screenshots/`.
 4. Read detailed reports in `writeups/`.
 
+   scenario
+   objective
+   tools
+   event IDs
+   logic
+
