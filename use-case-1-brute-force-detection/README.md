@@ -17,7 +17,7 @@ This use case demonstrates how to detect brute force login attempts using a SIEM
 ## How to Test
 
 1. Run the attack simulation script in `detection-logic/`.
-2. Watch your SIEM dashboard for alerts.
+2. Watch my SIEM dashboard for alerts.
 3. Review example alerts in `screenshots/`.
 4. Read detailed reports in `writeups/`.
 
