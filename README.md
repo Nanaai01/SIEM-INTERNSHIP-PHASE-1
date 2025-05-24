@@ -6,9 +6,8 @@ This repository contains several use cases demonstrating how to detect different
 Each use case simulates an attack scenario and includes detection logic, writeups, and screenshots to help you understand how to monitor and respond to security events.
 
 
-Tools & Environment
-
--VMware (Hypervisor)
+Tools & Environment   
+- VMware (Hypervisor)
 
 - Kali Linux (Simulation of Attacks)
 
@@ -43,7 +42,6 @@ How to Use This Repository
 
 - Click on any use case folder to explore detailed documentation, detection scripts, attack simulations, and screenshots.
 - Use this lab for learning, testing, or improving your SIEM skills.
-
 
 
 Contributing
