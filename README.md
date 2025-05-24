@@ -13,8 +13,11 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 🛠️ TOOLS & ENVIRONMENT
 
   🖥️ VMware (Hypervisor)
+  
   🐧 Kali Linux (Attack Simulation)
+  
   📡 Splunk Forwarder, Sysmon (Log Collection)
+  
   📊 Splunk Enterprise (Log Monitoring and Analysis)
 
 
