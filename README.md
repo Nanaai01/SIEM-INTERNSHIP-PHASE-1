@@ -1,6 +1,6 @@
-🔐 SIEM Monitoring Lab
+🔐 SIEM MONITORING LABb
 
-📝 Project Overview
+📝 PROJECT OVERVIEW
 
 Welcome to my SIEM Monitoring Lab! This project focuses on setting up a defense lab for Security Monitoring and Log Analysis using a SIEM platform.
 
@@ -8,7 +8,7 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 
 
 
-🛠️ Tools & Environment
+🛠️ TOOLS & ENVIRONMENT
 
   🖥️ VMware (Hypervisor)
   🐧 Kali Linux (Attack Simulation)
@@ -17,7 +17,7 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 
 
 
-🚨 Use Cases
+🚨 USE CASES
 
 1. 🔐 [Brute Force Detection](use-case-1-brute-force-detection/)
    Detect repeated failed login attempts to identify brute-force attacks.
@@ -36,28 +36,28 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 
 
 
-🎓 Lessons Learned
+🎓 LESSONS LEARNED
 
 Through this lab, I developed essential SOC Analyst skills by setting up a full defense environment for security monitoring and log analysis.
 I gained practical experience simulating common attacks such as brute-force attempts, suspicious logins, and log tampering — and crafting detection techniques to respond effectively.
 
 
 
-🚀 How to Use This Repository
+🚀 HOW TO USE THIS REPOSITORY
 
 📂 Explore each use case folder for detailed documentation, detection queries, attack simulation steps, and screenshots.
 🧪 Use this lab to learn, practice, or improve your SIEM monitoring and incident detection skills.
 
 
 
-🤝 Contributing
+🤝 CONTRIBUTION
 
 Contributions are welcome Feel free to add new use cases, enhance detection rules, or suggest improvements.
 Please open an issue or submit a pull request to contribute.
 
 
 
-📫 Contact / Support
+📫 CONTACT
 
 If you have questions or need assistance, feel free to reach out!
 
