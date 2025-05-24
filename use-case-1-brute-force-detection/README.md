@@ -1,10 +1,12 @@
 DETECTION USE CASE: BRUTEFORCE DETECTION
 
 SCENARIO DESCRIPTION
+
 The threat to be simulated is a bruteforce attack. This would aid SOC Analyst how to detect, identify and respond to brutforce attacks
 
 OBJECTIVE
--The SIEM should detect a failed login attempt
+
+The SIEM should detect a failed login attempt
 
 TOOLS USED
 - SIEM: Splunk Instance and Splunk Forwarder
