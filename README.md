@@ -22,18 +22,24 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 🚨 USE CASES
 
 1. 🔐 [Brute Force Detection](use-case-1-brute-force-detection/)
+
    Detect repeated failed login attempts to identify brute-force attacks.
 
-2. ⏰ [Suspicious Logon Time](use-case-2-suspicious-logon-time/)
+
+3. ⏰ [Suspicious Logon Time](use-case-2-suspicious-logon-time/)
+
    Detect login attempts outside of normal business hours.
 
-3. 🖥️ [Lateral Movement via RDP](use-case-3-lateral-movement-rdp/)
+5. 🖥️ [Lateral Movement via RDP](use-case-3-lateral-movement-rdp/)
+
    Identify unauthorized lateral movement using Remote Desktop Protocol.
 
-4. 📝 [Log Tampering](use-case-4-log-tampering/)
+7. 📝 [Log Tampering](use-case-4-log-tampering/)
+
    Detect when logs are altered or deleted.
 
-5. 👤 [Hidden User Account](use-case-5-hidden-user-account/)
+9. 👤 [Hidden User Account](use-case-5-hidden-user-account/)
+
    Find unauthorized hidden user accounts on the system.
    
 
