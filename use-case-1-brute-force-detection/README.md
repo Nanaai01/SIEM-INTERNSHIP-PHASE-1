@@ -1,6 +1,7 @@
 📄Brute-force Detection Lab
 
 
+
 🧠 Detection Logic
 
 ```spl
@@ -9,6 +10,7 @@ index="wineventlog" source="WinEventLog:Security" EventCode=4625
 | where count > 5
 | sort - count
 ```
+
 
 
 🖊️ Write-up
@@ -20,9 +22,13 @@ index="wineventlog" source="WinEventLog:Security" EventCode=4625
 This use case simulates a brute-force attack using valid domain enumeration but repeated invalid credentials to trigger failed login events. The goal is to help SOC analysts detect abnormal authentication patterns and take appropriate action.
 
 
+
+
 🧪 Objective
 
 Detect excessive failed login attempts that may signal a brute-force attack, using Splunk and Windows Event Logs.
+
+
 
 
 🧰 Tools Used
@@ -37,12 +43,14 @@ Detect excessive failed login attempts that may signal a brute-force attack, usi
 
 
 
-#### 📋 Event ID / Data Mapping
+
+📋 Event ID / Data Mapping
 
 | Source      | Event ID | Description          |
 | ----------- | -------- | -------------------- |
 | WinEventLog | 4625     | Failed login attempt |
 | Sysmon      | 1        | Process execution    |
+
 
 
 🔥 Attack Simulation
@@ -63,6 +71,7 @@ By repeatedly attempting authentication with different passwords or usernames, t
 The detection query identifies accounts or IPs with more than 5 failed login attempts. This logic helps in surfacing brute-force attempts that occur over short periods.
 
 SOC analysts can build alerts around this logic to trigger real-time notifications or triage responses.
+
 
 
 ✅ Result
