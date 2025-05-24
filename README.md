@@ -41,9 +41,13 @@ This lab helps improve your ability to monitor, detect, and respond to cyber thr
 🛠️ TOOLS & ENVIRONMENT
 
   🖥️  VMware – For virtual environment management
+  
   🐧  Kali Linux – For simulating attacker behavior
+  
   📡  Splunk Forwarder & Sysmon – For log collection from the target system
+  
   📊  Splunk Enterprise – For log ingestion, correlation, and monitoring
+
 
 
 🚨 USE CASES
