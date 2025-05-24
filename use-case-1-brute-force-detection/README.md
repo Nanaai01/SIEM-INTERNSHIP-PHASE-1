@@ -25,7 +25,9 @@ index="wineventlog" source="WinEventLog:Security"
 ```
 
 Result
-Failed Login Attempt
+
+-Failed Login Attempt
 
 Screenshots
-(Stored in screenshots folder)
+
+-Stored in screenshots folder
