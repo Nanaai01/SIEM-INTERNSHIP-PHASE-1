@@ -2,9 +2,6 @@
 
 
 
-```markdown
-![After-Hours Login Detection - Splunk Search](images/after_hours_detection.png)
-```
 
 🧠 Detection Logic
 
