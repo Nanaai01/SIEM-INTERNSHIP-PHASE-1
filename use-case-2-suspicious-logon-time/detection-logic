@@ -1,4 +1,5 @@
-index=win_logs (EventCode=4624 OR EventCode=4625)
-| eval login_hour = strftime(_time, "%H")
-| where login_hour < "09" OR login_hour >= "19"
-| table _time, host, Account_Name, EventCode, login_hour, Workstation_Name, Logon_Type
+index=wineventlog source="WinEventLog:Security" (EventCode=4624 OR EventCode=4625)
+| eval LogonHour=strftime(_time, "%H")
+| where LogonHour < 7 OR LogonHour >= 19
+| table _time, EventCode, Account_Name, LogonType, LogonHour, Workstation_Name, ComputerName
+| sort -_time
