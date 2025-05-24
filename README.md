@@ -57,8 +57,11 @@ This lab helps improve your ability to monitor, detect, and respond to cyber thr
 1. 🔐 [Brute Force Detection](use-case-1-brute-force-detection/)
 
   Techniques: Credential stuffing, repeated failed login attempts
+  
   Event ID: `4625` (Failed login – Windows Security Log)
+  
   Tools: Hydra, CrackMapExec
+  
   Logic:
 
   ```spl
@@ -71,8 +74,11 @@ This lab helps improve your ability to monitor, detect, and respond to cyber thr
 2. ⏰ [Suspicious Logon Time](use-case-2-suspicious-logon-time/)
 
   Techniques: After-hours logon by adversaries or insider threats
+
   Event ID: `4624` (Successful logon)
+  
   Tools: `smbclient`, simulated manual login
+  
   Logic:
 
   ```spl
@@ -85,8 +91,11 @@ This lab helps improve your ability to monitor, detect, and respond to cyber thr
 3. 🖥️ [Lateral Movement via RDP](use-case-3-lateral-movement-rdp/)
 
   Techniques: RDP-based movement from one system to another
+  
   Event ID: `4624` (Logon Type 10 for Remote Interactive Logon)
+  
   Tools: `xfreerdp`, `rdesktop`, Windows RDP
+  
   Logic:
 
   ```spl
@@ -99,8 +108,11 @@ This lab helps improve your ability to monitor, detect, and respond to cyber thr
 4. 📝 [Log Tampering](use-case-4-log-tampering/)
 
   Techniques: Clearing security logs to cover tracks
+  
   Event ID: `1102` (Audit log cleared)
+  
   Tools: Manual log clearing (Event Viewer)
+  
   Logic:
 
   ```spl
@@ -113,8 +125,11 @@ This lab helps improve your ability to monitor, detect, and respond to cyber thr
 5. 👤 [Hidden User Account](use-case-5-hidden-user-account/)
 
   Techniques: Creation of backdoor or stealth accounts
+  
   Event ID: `4720` (User account created)
+  
   Tools: `net user` command, PowerShell
+  
   Logic:
 
   ```spl
