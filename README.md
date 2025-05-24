@@ -1,6 +1,7 @@
 Project Overview
 
-Welcome to the SIEM Monitoring Lab! This repository contains several use cases demonstrating how to detect different types of cyber attacks using a SIEM (Security Information and Event Management) platform.
+Welcome to my SIEM Monitoring Lab! The project entails setting up a defence lap for Security Monitoring and Log Analysis.
+This repository contains several use cases demonstrating how to detect different types of cyber attacks using a SIEM (Security Information and Event Management) platform.
 
 Each use case simulates an attack scenario and includes detection logic, writeups, and screenshots to help you understand how to monitor and respond to security events.
 
@@ -34,6 +35,7 @@ Use Cases
    Find unauthorized hidden user accounts on the system.
 
 Lessons Learned
+
 I learned a highly demanded skill needed by all SOC Analystto excel. i gained hands-on experience by single handedly setting up a defence lab which is used for Security Monitoring and Log Analysis.
 I also learned how to simulate and respond to some common attacks. They are; Bruteforce Attack, suspicious login attempt, log tampering etc
 
