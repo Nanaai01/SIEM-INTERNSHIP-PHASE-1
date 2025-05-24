@@ -1,4 +1,6 @@
-🔐 SIEM MONITORING LABb
+🔐 SIEM MONITORING LAB
+
+
 
 📝 PROJECT OVERVIEW
 
@@ -33,6 +35,7 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 
 5. 👤 [Hidden User Account](use-case-5-hidden-user-account/)
    Find unauthorized hidden user accounts on the system.
+   
 
 
 
@@ -43,6 +46,7 @@ I gained practical experience simulating common attacks such as brute-force atte
 
 
 
+
 🚀 HOW TO USE THIS REPOSITORY
 
 📂 Explore each use case folder for detailed documentation, detection queries, attack simulation steps, and screenshots.
@@ -50,10 +54,12 @@ I gained practical experience simulating common attacks such as brute-force atte
 
 
 
+
 🤝 CONTRIBUTION
 
 Contributions are welcome Feel free to add new use cases, enhance detection rules, or suggest improvements.
 Please open an issue or submit a pull request to contribute.
+
 
 
 
