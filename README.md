@@ -45,10 +45,12 @@ This repository contains multiple use cases simulating cyber attack scenarios. E
 
 
 
+
 🎓 LESSONS LEARNED
 
 Through this lab, I developed essential SOC Analyst skills by setting up a full defense environment for security monitoring and log analysis.
 I gained practical experience simulating common attacks such as brute-force attempts, suspicious logins, and log tampering — and crafting detection techniques to respond effectively.
+
 
 
 
@@ -61,10 +63,12 @@ I gained practical experience simulating common attacks such as brute-force atte
 
 
 
+
 🤝 CONTRIBUTION
 
 Contributions are welcome Feel free to add new use cases, enhance detection rules, or suggest improvements.
 Please open an issue or submit a pull request to contribute.
+
 
 
 
