@@ -1,1 +1,62 @@
+🧪 Log Tampering via Security Log Clearing (Event ID 1102)
+
+🧭 Overview
+
+Log tampering is a post-exploitation technique where an attacker attempts to erase their activities to evade detection. One of the most direct methods is **clearing the Windows Security log**, which immediately triggers **Event ID 1102**. This write-up documents how to simulate, detect, and respond to this activity.
+
+
+
+🧪 Test Scenario
+
+Environment:
+
+* Attacker Machine: Kali Linux
+* Victim: Windows 11 VM with Splunk Forwarder
+* Monitoring: Splunk Enterprise
+
+Steps:
+
+1. The attacker gains remote access using tools like PsExec or RDP.
+2. Executes the command on the target Windows system:
+
+   ```powershell
+   wevtutil cl Security
+   ```
+
+   > This command clears the entire Windows Security event log.
+3. On execution, Windows generates **Event ID 1102** indicating the log was cleared.
+
+---
+
+🕵️ Detection Logic
+
+Primary Indicator:
+
+* Event ID 1102 — "The audit log was cleared"
+
+Splunk Query:
+
+```spl
+index=wineventlog EventCode=1102
+| table _time, ComputerName, Account_Name, Message
+| sort - _time
+```
+
+This query helps identify **who** cleared the log and **when** it happened.
+
+
+
+🧩 MITRE ATT\&CK Mapping
+
+* Technique: [T1070.001](https://attack.mitre.org/techniques/T1070/001/) – Indicator Removal on Host: Clear Windows Event Logs
+
+
+
+📌 Summary
+
+Clearing logs is a red flag for tampering attempts. Security teams should:
+
+* Alert on Event ID 1102.
+* Correlate with privilege escalation or lateral movement.
+* Investigate user behavior before and after log deletion.
 
