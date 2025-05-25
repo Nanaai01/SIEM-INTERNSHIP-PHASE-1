@@ -1,0 +1,9 @@
+index=wineventlog EventCode=4732
+| table _time, ComputerName, Group_Name, Member_Name, Subject_User_Name, Message
+| sort - _time
+
+
+
+  index=wineventlog EventCode=4720
+| table _time, ComputerName, Account_Name, Subject_User_Name, Message
+| sort - _time
