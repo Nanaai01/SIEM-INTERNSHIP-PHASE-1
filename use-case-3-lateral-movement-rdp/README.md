@@ -92,8 +92,8 @@ index="wineventlog" source="WinEventLog:Security" EventCode=4624 Logon_Type=10
 
 🧠 Recommendations
 
-* Enable **Windows firewall logging** to monitor incoming RDP traffic
-* Restrict RDP access to **trusted IPs only**
-* Enforce **multi-factor authentication** for remote access
-* Monitor for **account usage anomalies**
+* Enable Windows firewall logging to monitor incoming RDP traffic
+* Restrict RDP access to trusted IPs only
+* Enforce multi-factor authentication for remote access
+* Monitor for account usage anomalies
 
