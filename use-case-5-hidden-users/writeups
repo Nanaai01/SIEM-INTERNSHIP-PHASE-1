@@ -1,1 +1,62 @@
+Overview:
+This report demonstrates how attackers create hidden or backdoor user accounts on Windows systems to maintain unauthorized access and escalate privileges. Using Kali Linux as the attacker machine and a Windows 11 VM as the victim, the process is executed remotely via `psexec.py` from the Impacket toolkit.
+
+
+
+Scenarios Tested 🔍
+
+1. **Create New User Account**
+   Command:
+
+   ```bash
+   net user backdooruser SuperSecurePass123! /add
+   ```
+
+   This adds a new user named `backdooruser` with a strong password.
+
+2. **Add User to Administrators Group**
+   Command:
+
+   ```bash
+   net localgroup administrators backdooruser /add
+   ```
+
+   This elevates the created user to the administrators group, granting high privileges.
+
+
+
+## Detection & Monitoring 🛡️
+
+* **Relevant Event IDs:**
+
+  * `4720`: User account creation
+  * `4732`: User added to a privileged group
+
+* **Splunk Queries to Detect:**
+
+  ```spl
+  index=wineventlog EventCode=4720
+  | table _time, ComputerName, Account_Name, Subject_User_Name, Message
+  | sort - _time
+  ```
+
+  ```spl
+  index=wineventlog EventCode=4732
+  | table _time, ComputerName, Group_Name, Member_Name, Subject_User_Name, Message
+  | sort - _time
+  ```
+
+
+
+## MITRE ATT\&CK Reference 🎯
+
+* **T1136** — Create Account
+
+
+
+## Summary 📋
+
+Creating hidden user accounts is a common attacker persistence technique. Detecting these activities through event logs and proper monitoring tools like Splunk enables defenders to quickly identify and respond to unauthorized privilege escalations and backdoor creations.
+
+
 
