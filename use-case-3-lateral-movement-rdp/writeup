@@ -1,3 +1,109 @@
+# 🚀 Lateral Movement via RDP & PsExec
+
+This document demonstrates two common lateral movement techniques attackers use to expand access within a network: **Remote Desktop Protocol (RDP)** and **PsExec**.
+
+---
+
+🧪 Lab Setup
+- **Attacker:** Kali Linux 🐧  
+- **Victim:** Windows 11 VM 💻 
+- **Monitoring:** Splunk Enterprise 📊 for log analysis
+
+
+
+🔑 Technique 1: RDP
+
+- **Tool:** `xfreerdp` 🖥️  
+- **MITRE ATT&CK:** T1021.001 🎯  
+- **Detection:** Windows Event ID 4624 with Logon Type 10 (RDP logon)  
+- **Splunk Query:**  
+  ```spl
+  index=wineventlog EventCode=4624 Logon_Type=10
+
+
+````markdown
+# 🚀 Lateral Movement via RDP & PsExec
+
+This document demonstrates two common lateral movement techniques attackers use to expand access within a network: **Remote Desktop Protocol (RDP)** and **PsExec**.
+
+---
+
+## 🧪 Lab Setup
+- **Attacker:** Kali Linux 🐧  
+- **Victim:** Windows 11 VM 💻 (192.168.189.150, CYBERSTAR)  
+- **Monitoring:** Splunk Enterprise 📊 for log analysis
+
+---
+
+## 🔑 Technique 1: RDP
+
+- **Tool:** `xfreerdp` 🖥️  
+- **MITRE ATT&CK:** T1021.001 🎯  
+- **Detection:** Windows Event ID 4624 with Logon Type 10 (RDP logon)  
+- **Splunk Query:**  
+  ```spl
+  index=wineventlog EventCode=4624 Logon_Type=10
+````
+
+* **Test Command:**
+
+  ```bash
+  xfreerdp /v:192.168.189.150 /u:Dummy /p:Password12345 /cert:ignore /sec:rdp
+  ```
+
+---
+
+## 🔧 Technique 2: PsExec
+
+* **Tool:** `psexec.py` (Impacket) 🔥
+* **MITRE ATT\&CK:** T1021.002 🎯
+* **Detection:**
+
+  * Event ID 4624 (Logon Type 3 or 5) ✅
+  * Event ID 7045 (Service creation) ⚙️
+* **Splunk Queries:**
+
+  ```spl
+  index=wineventlog EventCode=4624 Logon_Type=3 OR Logon_Type=5
+  ```
+
+  ```spl
+  index=wineventlog EventCode=7045
+  ```
+* **Test Command:**
+
+  ```bash
+  python3 /usr/share/doc/python3-impacket/examples/psexec.py CYBERSTAR/Dummy:Password12345@192.168.189.150
+  ```
+
+---
+
+## 📋 Summary Table
+
+| Technique | Tool      | Key Event IDs         | MITRE ID  |
+| --------- | --------- | --------------------- | --------- |
+| RDP       | xfreerdp  | 4624 (Logon Type 10)  | T1021.001 |
+| PsExec    | psexec.py | 4624 (Type 3/5), 7045 | T1021.002 |
+
+---
+
+## 🛡️ Recommendations
+
+* Restrict RDP and SMB access via firewall 🚧
+* Enable service creation logging 📝
+* Monitor for unusual logon types and service installs 🔍
+* Use Splunk for real-time detection ⚡
+
+---
+
+## 🔗 References
+
+* [MITRE ATT\&CK T1021.001](https://attack.mitre.org/techniques/T1021/001/)
+* [MITRE ATT\&CK T1021.002](https://attack.mitre.org/techniques/T1021/002/)
+* [Impacket GitHub](https://github.com/fortra/impacket)
+
+
+
 📂 Data Required
 
 | Source             | Event Log                          | Event ID | Purpose                           |
