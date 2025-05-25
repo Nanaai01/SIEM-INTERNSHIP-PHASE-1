@@ -1,1 +1,4 @@
+index=wineventlog EventCode=1102
+| table _time, ComputerName, Account_Name, Message
+| sort - _time
 
