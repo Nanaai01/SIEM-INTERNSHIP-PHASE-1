@@ -1,1 +1,99 @@
+📂 Data Required
+
+| Source             | Event Log                          | Event ID | Purpose                           |
+| ------------------ | ---------------------------------- | -------- | --------------------------------- |
+| Windows Event Logs | `Security` (WinEventLog\:Security) | `4624`   | Detect successful logons          |
+|                    |                                    | `4625`   | (Optional) Detect failed attempts |
+| Network telemetry  | Firewall or NetFlow logs           | —        | (Optional) Confirm connections    |
+
+
+
+🎯 Detection Logic
+
+✅ SPL (Splunk Query)
+
+```spl
+index="wineventlog" source="WinEventLog:Security" EventCode=4624 Logon_Type=10
+| table _time, ComputerName, Account_Name, Ip_Address, Workstation_Name, Logon_Type
+| sort - _time
+```
+
+📌 Key Indicators
+
+| Field           | Description                              |
+| --------------- | ---------------------------------------- |
+| `Logon_Type=10` | Indicates Remote Interactive (RDP) Logon |
+| `Ip_Address`    | Source IP used for the login             |
+| `Account_Name`  | User account used                        |
+| `ComputerName`  | Destination system of the RDP session    |
+| `_time`         | Time of login                            |
+
+
+
+🧪 Test Scenario
+
+🔧 Setup
+
+* Attacker: Kali Linux
+* Victim: Windows 10 VM with RDP enabled
+* Monitor: Splunk Enterprise collecting Windows Security logs
+
+### 🧪 Simulation Steps
+
+1. From Kali Linux, initiate an RDP session to the target Windows VM:
+
+   ```bash
+   xfreerdp3 /v:<target_ip> /u:Dummy /p:Password12345 /cert:ignore
+   ```
+
+   *(Make sure RDP is enabled on the Windows VM and the user account has permission to log in remotely.)*
+
+2. On the Windows VM:
+
+   * The Security log will record **Event ID 4624** with **Logon Type 10**.
+
+3. In Splunk:
+
+   * Run the detection SPL to verify the logon attempt was recorded:
+
+     ```spl
+     index="wineventlog" source="WinEventLog:Security" EventCode=4624 Logon_Type=10
+     ```
+
+
+
+## 🧠 MITRE ATT\&CK Mapping
+
+| Tactic           | Technique                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------ |
+| Lateral Movement | [T1021.001 - Remote Services: Remote Desktop Protocol (RDP)](https://attack.mitre.org/techniques/T1021/001/) |
+
+
+
+🚩 Use Case Scenarios
+
+| Scenario                              | Expected Behavior                                      |
+| ------------------------------------- | ------------------------------------------------------ |
+| RDP login from unusual IP             | Alert — Possible unauthorized access                   |
+| RDP login outside business hours      | Alert — Suspicious timing                              |
+| Account used to log in multiple hosts | Alert — Lateral movement using compromised credentials |
+
+
+
+🧹 Mitigation Strategies
+
+* **Disable RDP** unless absolutely required.
+* Enforce **strong passwords** and **multi-factor authentication**.
+* Limit RDP access via **firewall rules** or **network segmentation**.
+* Enable **Network Level Authentication (NLA)**.
+* Audit and alert on **Event ID 4624 with Logon Type 10**.
+
+
+
+📎 References
+
+* 🔗 [MITRE ATT\&CK T1021.001 – Remote Desktop Protocol](https://attack.mitre.org/techniques/T1021/001/)
+* 🔗 [Microsoft: Logon Event ID 4624](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624)
+* 🔗 [FreeRDP GitHub](https://github.com/FreeRDP/FreeRDP)
+
 
