@@ -81,7 +81,7 @@ MITRE ATT\&CK Reference
 1. From Kali:
 
 ```bash
-python3 /usr/share/doc/python3-impacket/examples/psexec.py CYBERSTAR/Duummmmy:Password00000@192.168.189.150
+python3 /usr/share/doc/python3-impacket/examples/psexec.py domain name/user:Password@192.168.189.150
 ```
 
 2. Observe the following:
