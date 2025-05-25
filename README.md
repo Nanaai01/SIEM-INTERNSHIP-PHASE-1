@@ -2,6 +2,7 @@
 
 
 
+
 📝 PROJECT OVERVIEW
 
 Welcome to my SIEM Monitoring Lab!
@@ -167,6 +168,82 @@ Whether you're training, building a home lab, or preparing for a SOC role — th
 🤝 CONTRIBUTION
 
 Contributions are welcome! 🚀
+
+
+
+
+
+
+
+REFECTION QUESTIONS AND EVALUATION
+
+
+1.	What is the role of SIEM in modern Cybersecurity?
+Security information and event management (SIEM) solution role in modern cybersecurity is to collect, aggregate, and analyze large volumes of data from organization-wide applications, devices, servers, and users in real time. By consolidating this vast array of data into a single, unified platform, SIEM solutions provide a comprehensive view of an organization's security posture, empowering the Security Operations Center (SOC) to detect, investigate, and respond to security incidents swiftly and effectively.
+
+
+2.	 Challenges faced while setting up my lab
+i.	 Limited processing power or memory in virtualized lab setups can slow down analysis or cause instability during testing.
+ii.	 Not being able to connect the splunk forwarder and splunk instant due to a firewall blocking port 9997 which was later resolved.
+iii. Not being able to establish a TCP connection between the victim machine (windows 11 in VMware, splunk forwarder and sysmon) and the monitoring machine (Windows 11, splunk instant)
+iv.  Network segmentation or strict firewall rules might have prevented certain tools from connecting or executing commands remotely. 
+
+
+4.	Difference between Sysmon Logs and Windows Security Logs
+(Sysmon) System Monitor and Windows Security Log are both event logging mechanisms in windows but have some differences. Specifically, the differences are;
+Sysmon provides detailed, high-quality event logging for security monitoring, 
+While Windows Event Log offers general system, application, and security event logging. Sysmon focuses on tracking specific activities like process creation and network connections, . It provided detailed information about process creations, network connections, and changes to the file.
+whereas Windows Event Log captures a broader range of system events.
+
+
+5.  Brute force attacks show up in Windows logs as many failed login attempts:
+
+* Event ID 4625: Failed login attempts. Multiple such events from the same user or IP in a short time suggest brute force.
+* Event ID 4740: Account lockout after too many failed tries (if lockout policies are enabled).
+
+Detection involves spotting repeated 4625 events for the same user/IP quickly.
+
+Example query: Find users/IPs with more than 5 failed logins in a timeframe.
+
+
+5.  To detect logins outside normal hours, you:
+
+* Use Event ID 4624 (successful logins).
+* Filter logins by time, flagging those that occur outside defined “normal” business hours.
+* Compare login times against expected user activity windows to spot anomalies.
+
+This helps catch suspicious access during odd hours, possibly indicating unauthorized use.
+
+
+6.  RDP lateral movement is tracked in logs primarily through Windows Security Event ID 4624 with Logon Type 10, which indicates a successful Remote Interactive logon via RDP. This event records the username, source IP, timestamp, and machine name, helping identify when and from where a remote desktop session was initiated.
+
+Additional events, like Event ID 4648 (explicit credentials used) or network logs showing RDP connection attempts (port 3389), can supplement detection. Monitoring for unusual or unauthorized RDP logins, especially from unexpected IPs or outside business hours, helps spot lateral movement in the network.
+
+ 
+7.	Risk of Log Tampering and how it can be detected
+Log tampering posses a significant risk because it allows attackers to hide their malicious activities, obstruct investigations, and undermine sytem integrity.
+The following are the risks of log tampering;
+i.	Evasion of detection
+ii.	Financial losses and reputation damage
+iii.	Impeding Investigation
+iv.	Undermining system integrity
+
+Detection of log tampering are;
+i.	Monitoring for unusual system behavior
+ii.	Log pattern analysis
+iii.	Secure logging protocols
+iv.	Centralized log management
+
+
+8.	Improvements I would have made in my lab set up
+i.	Test run different tools that can be used for log capturing if given the time to see which is best or most suitable
+ii.	Uninstall and reinstall some tools to see that I master the lab set up off hand
+
+9.	This will help me in real life interviews or job because this lab provides me with real life scenario and hands on experience in this field as mastering the different SIEM tools, log and event capturing, detecting, mitigating and responding to threats are very important skills to have in order to successfully build a career as a Security Operations Center (SOC) Analyst.
+
+10.	My biggest takeaway from this phase is how I am able to set up a real time monitoring and detection lab, as well as simulate and respond to real life scenario. This is a big knowledge acquired for me and I excitedly look forward to the next 5 phases. 
+
+
 
 
 📫 CONTACT
